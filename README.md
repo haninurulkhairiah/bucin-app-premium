@@ -50,7 +50,7 @@ const firebaseConfig = {
 Pastikan aturan Firestore (Database Rules) sudah diatur sesuai standar produksi agar aman dari spam.
 
 ## 👨‍💻 Hak Cipta & Kreator
-Dibuat oleh: **SukaCoding**.  
+Dibuat oleh: **SukaCoding** 
 © Hanif 2026 - All rights reserved.- **🎵 Pemutar Musik Romantis:** Musik latar yang akan otomatis berputar (autoplay) untuk membangun suasana (*browser-policy friendly*).
 - **📸 Galeri Foto Interaktif:** Kumpulan kenangan foto dengan efek transisi menarik.
 - **💬 Papan Pesan Real-time:** Terintegrasi dengan database **Firebase Firestore** mode produksi, memungkinkan pengunjung untuk meninggalkan pesan atau komentar yang akan tersimpan selamanya secara *real-time*.
@@ -90,5 +90,5 @@ const firebaseConfig = {
 Pastikan aturan Firestore (Database Rules) sudah diatur sesuai standar produksi agar aman dari spam.
 
 ## 👨‍💻 Hak Cipta & Kreator
-Dibuat oleh: SukaCoding. 
+Dibuat oleh: SukaCoding 
 © Hanif 2026 - All rights reserved.
