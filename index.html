@@ -16,6 +16,18 @@
         body { top: 0 !important; }
         .skiptranslate { display: none !important; }
     </style>
+    <script>
+        (function() {
+            var theme = localStorage.getItem('bucin_theme') || 'auto';
+            var hour = new Date().getHours();
+            var isNight = hour >= 18 || hour < 6;
+            if (theme === 'dark' || (theme === 'auto' && isNight)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.removeAttribute('data-theme');
+            }
+        })();
+    </script>
 </head>
 <body>
 
