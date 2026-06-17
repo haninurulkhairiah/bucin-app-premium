@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pesan spesial dari hati — dibuat dengan cinta 💖">
+    <title>Buat Kamu ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sembunyikan toolbar bawaan Google Translate */
+        .goog-te-banner-frame, #goog-gt-tt, .goog-tooltip, .goog-te-balloon-frame {
+            display: none !important;
+        }
+        body { top: 0 !important; }
+        .skiptranslate { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- Google Translate (hidden widget) -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'id',
+                includedLanguages: 'id,en,ja,ko,fr',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Top Navigation (Settings & Language) -->
+    <nav class="top-nav" id="topNav">
+        <button class="settings-btn" id="openSettingsBtn" onclick="openSettings()" aria-label="Pengaturan">⚙️</button>
+        <div class="lang-switcher" id="langSwitcher" aria-label="Language selector">
+            <button class="lang-btn active" data-lang="id" onclick="setLanguage('id')">🇮🇩 ID</button>
+            <button class="lang-btn" data-lang="en" onclick="setLanguage('en')">🇬🇧 EN</button>
+            <button class="lang-btn" data-lang="ja" onclick="setLanguage('ja')">🇯🇵 JA</button>
+            <button class="lang-btn" data-lang="ko" onclick="setLanguage('ko')">🇰🇷 KR</button>
+            <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">🇫🇷 FR</button>
+        </div>
+    </nav>
+
+    <!-- Music Player (fixed bottom-left) -->
+    <div class="music-player">
+        <!-- Letakkan file musik romantis di music.mp3 -->
+        <audio id="bgMusic" loop autoplay preload="auto">
+            <source src="Nadhif Basalamah - bergema sampai selamanya.mp3" type="audio/mpeg">
+        </audio>
+        <button class="music-btn" id="musicToggle" onclick="toggleMusic()" aria-label="Toggle music">
+            <span class="music-icon" id="musicIcon">🎵</span>
+        </button>
+    </div>
+
+    <!-- Floating Particles Background -->
+    <div id="particles"></div>
+
+    <!-- =====================================================
+         SCREEN 1: OPENING
+    ====================================================== -->
+    <section class="screen" id="screen1">
+        <div class="marquee-wrap top">
+            <div class="marquee-track">
+                <span>💖 aku suka kamu</span><span>✨ kamu spesial banget</span>
+                <span>🌸 tiap hari inget kamu</span><span>💕 kamu bikin aku semangat</span>
+                <span>🥺 jangan pergi ya</span><span>💖 aku suka kamu</span>
+                <span>✨ kamu spesial banget</span><span>🌸 tiap hari inget kamu</span>
+            </div>
+        </div>
+
+        <div class="center-content">
+            <div class="photo-wrapper">
+                <div class="photo-ring"></div>
+                <div class="photo-frame">
+                    <img src="couple.jpg" id="coupleImg" alt="Kita Berdua">
+                </div>
+            </div>
+            <p class="tagline" data-i18n="tagline">Hai, kamu...</p>
+            <p class="sub-tagline" data-i18n="sub_tagline">Ada yang pengen aku ceritain 🌙</p>
+            <button class="btn-next pulse" onclick="goToScreen(2)" data-i18n="btn_open">Buka pesan ❤️</button>
+        </div>
+
+        <div class="marquee-wrap bottom">
+            <div class="marquee-track reverse">
+                <span>🎀 you mean everything</span><span>🫧 kamu selalu ada di pikiranku</span>
+                <span>🌷 senyummu bikin aku lupa napas</span><span>💌 banyak banget yang pengen aku bilang</span>
+                <span>🎀 you mean everything</span><span>🫧 kamu selalu ada di pikiranku</span>
+                <span>🌷 senyummu bikin aku lupa napas</span><span>💌 banyak banget yang pengen aku bilang</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN 2: KATA KATA BAGIAN 1
+    ====================================================== -->
+    <section class="screen hidden" id="screen2">
+        <div class="scroll-content">
+
+            <div class="msg-block reveal">
+                <p class="msg-big" data-i18n="greet">Selamat pagi, selamat siang, selamat malam...</p>
+                <p class="msg-sub" data-i18n="greet_sub">kapanpun kamu buka ini 🌙</p>
+            </div>
+
+            <div class="msg-block reveal">
+                <p class="msg-big italic" data-i18n="secret_title">"Aku mau cerita sesuatu."</p>
+                <p class="msg-normal" data-i18n="secret_sub">Sesuatu yang udah lama aku pendam.</p>
+            </div>
+
+            <!-- Marquee sisipan -->
+            <div class="marquee-inline reveal">
+                <div class="marquee-track slow">
+                    <span>🌸 kamu</span><span>💕 kamu</span><span>✨ kamu</span>
+                    <span>🥺 kamu</span><span>🌸 kamu</span><span>💕 kamu</span>
+                    <span>✨ kamu</span><span>🥺 kamu</span>
+                </div>
+            </div>
+
+            <div class="msg-block reveal">
+                <p class="msg-normal" data-i18n="who1">Ada satu orang yang tanpa disengaja</p>
+                <p class="msg-big" data-i18n="who2">bikin hari-hariku jadi beda.</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="smile_block">
+                <p class="msg-normal">Yang bikin aku senyum sendiri tengah malam,</p>
+                <p class="msg-normal">padahal nggak ada yang lucu.</p>
+                <p class="msg-normal">Yang namanya tiba-tiba muncul di pikiran,</p>
+                <p class="msg-normal">padahal lagi ngerjain hal lain.</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="type_block">
+                <p class="msg-normal">Yang kadang bikin aku ngetik panjang</p>
+                <p class="msg-normal">terus dihapus lagi karena nggak tau</p>
+                <p class="msg-big">gimana cara ngungkapinnya.</p>
+            </div>
+
+            <div class="msg-block reveal">
+                <p class="msg-big" data-i18n="its_you">Itu kamu.</p>
+                <p class="msg-emoji">✨</p>
+            </div>
+
+            <div class="center-btn reveal">
+                <button class="btn-next" onclick="goToScreen(3)" data-i18n="btn_more">Masih ada lagi... 🌸</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN 3: KATA KATA BAGIAN 2
+    ====================================================== -->
+    <section class="screen hidden" id="screen3">
+        <div class="scroll-content">
+
+            <div class="msg-block reveal">
+                <p class="msg-big italic" data-i18n="like_title">"Aku suka banyak hal dari kamu."</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="like_laugh_block">
+                <p class="msg-normal">Aku suka caramu ketawa —</p>
+                <p class="msg-normal">yang kadang sampe nutup mulut sendiri,</p>
+                <p class="msg-normal">lucu banget.</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="like_tell_block">
+                <p class="msg-normal">Aku suka caramu cerita hal-hal kecil</p>
+                <p class="msg-big">kayak itu penting banget.</p>
+                <p class="msg-normal">Dan memang itu penting,</p>
+                <p class="msg-normal">karena <span class="highlight">kamu</span> yang cerita.</p>
+            </div>
+
+            <!-- Quote card -->
+            <div class="quote-card reveal">
+                <p class="quote-text" data-i18n="quote1">"Kamu tuh kayak lagu favorit. Nggak pernah capek didengerinnya."</p>
+                <span class="quote-dash" data-i18n="quote1_credit">— aku 🎵</span>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="think_block">
+                <p class="msg-normal">Tiap hari aku nemuin satu alasan baru</p>
+                <p class="msg-big">kenapa aku nggak bisa berhenti mikirin kamu.</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="not_forced_block">
+                <p class="msg-normal">Bukan karena aku maksa,</p>
+                <p class="msg-normal">tapi karena kamu emang</p>
+                <p class="msg-big italic">susah untuk dilupain.</p>
+                <p class="msg-emoji">💕</p>
+            </div>
+
+            <!-- Marquee sisipan -->
+            <div class="marquee-inline reveal">
+                <div class="marquee-track">
+                    <span>💖 aku sayang kamu</span><span>🌷 beneran</span>
+                    <span>✨ serius</span><span>🥺 percaya deh</span>
+                    <span>💖 aku sayang kamu</span><span>🌷 beneran</span>
+                    <span>✨ serius</span><span>🥺 percaya deh</span>
+                </div>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="not_regret_block">
+                <p class="msg-normal">Jadi...</p>
+                <p class="msg-big">aku nggak mau nyesal</p>
+                <p class="msg-normal">karena nggak pernah bilang.</p>
+            </div>
+
+            <div class="center-btn reveal">
+                <button class="btn-next" onclick="goToScreen(4)" data-i18n="btn_next">Lanjut... 💌</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN 4: KATA KATA BAGIAN 3 + JANJI
+    ====================================================== -->
+    <section class="screen hidden" id="screen4">
+        <div class="scroll-content">
+
+            <div class="msg-block reveal">
+                <p class="msg-big italic" data-i18n="honest_title">"Kalau boleh jujur..."</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="honest1_block">
+                <p class="msg-normal">Aku nggak tau ini bakal ke mana,</p>
+                <p class="msg-normal">aku nggak bisa janjiin hal-hal yang aku sendiri nggak yakin.</p>
+            </div>
+
+            <div class="msg-block reveal">
+                <p class="msg-big" data-i18n="honest2">Tapi satu yang aku tau pasti —</p>
+            </div>
+
+            <!-- Quote card -->
+            <div class="quote-card reveal alt">
+                <p class="quote-text" data-i18n="quote2">"Aku mau ada buat kamu. Beneran."</p>
+                <span class="quote-dash" data-i18n="quote2_credit">— bukan cuma kata-kata 🤍</span>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="days_block">
+                <p class="msg-normal">Di hari-hari kamu seneng,</p>
+                <p class="msg-normal">aku mau ikut seneng.</p>
+                <p class="msg-normal">Di hari-hari kamu capek,</p>
+                <p class="msg-big">aku mau jadi tempat kamu istirahat.</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="just_you_block">
+                <p class="msg-normal">Nggak perlu sempurna,</p>
+                <p class="msg-normal">nggak perlu pura-pura.</p>
+                <p class="msg-big italic">Cukup jadi kamu aja.</p>
+                <p class="msg-emoji">🌸</p>
+            </div>
+
+            <div class="msg-block reveal" data-i18n-html="enough_block">
+                <p class="msg-normal">Karena kamu apa adanya</p>
+                <p class="msg-big">udah lebih dari cukup buat aku.</p>
+                <p class="msg-emoji">💞</p>
+            </div>
+
+            <div class="center-btn reveal">
+                <button class="btn-next" onclick="goToScreen(5)" data-i18n="btn_gallery">Liat foto kita dulu yuk... 📸</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN 5: GALERI BERSAMA
+    ====================================================== -->
+    <section class="screen hidden" id="screen5">
+        <div class="scroll-content gallery-content">
+
+            <div class="msg-block reveal">
+                <p class="msg-big italic" data-i18n="gallery_title">"Momen kita..."</p>
+                <p class="msg-normal" data-i18n="gallery_sub">yang selalu bikin aku senyum sendiri 🥺</p>
+            </div>
+
+            <div class="gallery-grid reveal">
+
+                <div class="gallery-card">
+                    <div class="gallery-photo">
+                        <img src="photo1.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Foto 1">
+                        <div class="photo-placeholder"><span>📸</span><p data-i18n-html="ph1">Tambah foto di<br>photo1.jpg</p></div>
+                    </div>
+                    <p class="gallery-caption" data-i18n="cap1">Momen pertama ✨</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-photo">
+                        <img src="photo2.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Foto 2">
+                        <div class="photo-placeholder"><span>💕</span><p data-i18n-html="ph2">Tambah foto di<br>photo2.jpg</p></div>
+                    </div>
+                    <p class="gallery-caption" data-i18n="cap2">Selalu seru bareng 🌸</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-photo">
+                        <img src="couple.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Kita Berdua">
+                        <div class="photo-placeholder" style="display:none"><span>🤍</span><p>Photo</p></div>
+                    </div>
+                    <p class="gallery-caption" data-i18n="cap3">Kita berdua 💞</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-photo">
+                        <img src="photo3.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Foto 3">
+                        <div class="photo-placeholder"><span>🎀</span><p data-i18n-html="ph3">Tambah foto di<br>photo3.jpg</p></div>
+                    </div>
+                    <p class="gallery-caption" data-i18n="cap4">Kenangan manis 🍬</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-photo">
+                        <img src="photo4.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Foto 4">
+                        <div class="photo-placeholder"><span>🌷</span><p data-i18n-html="ph4">Tambah foto di<br>photo4.jpg</p></div>
+                    </div>
+                    <p class="gallery-caption" data-i18n="cap5">Favorit aku 🌷</p>
+                </div>
+
+                <div class="gallery-card">
+                    <div class="gallery-photo">
+                        <img src="photo5.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Foto 5">
+                        <div class="photo-placeholder"><span>💖</span><p data-i18n-html="ph5">Tambah foto di<br>photo5.jpg</p></div>
+                    </div>
+                    <p class="gallery-caption" data-i18n="cap6">Suka banget 💖</p>
+                </div>
+
+            </div>
+
+            <div class="center-btn reveal">
+                <button class="btn-next" onclick="goToScreen(6)" data-i18n="btn_question">Ada yang mau aku tanya... 🥺</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN 6: PERTANYAAN BUCIN
+    ====================================================== -->
+    <section class="screen hidden" id="screen6">
+        <div class="center-content question-section">
+            <div class="question-card">
+                <p class="msg-emoji big-emoji">🥺</p>
+                <p class="msg-big" data-i18n="q_intro">Satu pertanyaan doang...</p>
+                <p class="question-text" data-i18n="q_question">"Kamu mau nggak jadi milikku?"</p>
+                <p class="msg-sub" id="yesHint" data-i18n="q_hint">Jawab jujur ya, aku nggak akan marah 🙏</p>
+                <div class="answer-area">
+                    <button class="btn-yes" id="yesBtn" onclick="handleYes()" data-i18n="yes_text">MAU BANGET! 💞</button>
+                    <button class="btn-no" id="noBtn" onmouseover="runAway()" onclick="runAway()" data-i18n="no_text">Ga mau 😅</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN 7: FINAL + KOMENTAR FIRESTORE
+    ====================================================== -->
+    <section class="screen hidden" id="screen7">
+        <div class="scroll-content final-wrapper">
+
+            <!-- Ucapan terima kasih -->
+            <div class="center-content final-top">
+                <div class="firework-emoji" id="fireworks">🎉🎊🎆</div>
+                <div class="photo-wrapper small">
+                    <div class="photo-ring"></div>
+                    <div class="photo-frame small">
+                        <img src="couple.jpg" alt="Kita Berdua">
+                    </div>
+                </div>
+                <p class="msg-big" style="color:#c0185e; margin-top:18px;" data-i18n="final_thanks">Yeay!! Makasih ya~ 🥰</p>
+                <p class="msg-normal" data-i18n="final_p1">Aku bakal jagain kamu, sungguh.</p>
+                <p class="msg-normal" data-i18n="final_p2">Selamanya? Kita lihat aja nanti... tapi aku serius. 💖</p>
+            </div>
+
+            <!-- Marquee selamat -->
+            <div class="marquee-inline">
+                <div class="marquee-track">
+                    <span>🎉 selamat yaa!</span><span>💖 kalian cocok banget</span>
+                    <span>✨ semoga langgeng</span><span>🌷 uwuwuwu</span>
+                    <span>🎉 selamat yaa!</span><span>💖 kalian cocok banget</span>
+                    <span>✨ semoga langgeng</span><span>🌷 uwuwuwu</span>
+                </div>
+            </div>
+
+            <!-- Form Kirim Pesan -->
+            <div class="comment-section">
+                <div class="comment-header">
+                    <span class="comment-icon">💬</span>
+                    <h2 class="comment-title" data-i18n="form_title">Tinggalkan Pesanmu</h2>
+                    <p class="comment-desc" data-i18n="form_desc">Kamu juga mau bilang sesuatu? Tuliskan di sini~ ❤️</p>
+                </div>
+
+                <form id="messageForm" class="comment-form">
+                    <div class="form-row">
+                        <input type="text" id="userName" data-i18n-placeholder="name_placeholder" placeholder="Nama kamu (opsional)" maxlength="30" autocomplete="off">
+                    </div>
+                    <div class="form-row">
+                        <textarea id="userMessage" data-i18n-placeholder="msg_placeholder" placeholder="Tulis pesan kamu di sini..." required maxlength="200" rows="3"></textarea>
+                        <span class="char-count" id="charCount">0 / 200</span>
+                    </div>
+                    <button type="submit" class="btn-send" id="submitBtn" data-i18n="form_submit">Kirim Pesan 💌</button>
+                </form>
+                <p id="statusMsg"></p>
+            </div>
+
+            <!-- Daftar Komentar -->
+            <div class="comments-list-section">
+                <h3 class="comments-list-title" data-i18n="comments_title">💌 Pesan dari semua orang</h3>
+                <div id="commentsList" class="comments-list">
+                    <p class="loading-comments" data-i18n="comments_loading">Memuat pesan... 🌸</p>
+                </div>
+            </div>
+
+            <!-- Footer Hak Cipta -->
+            <footer class="site-footer">
+                <div class="footer-heart">💖</div>
+                <p class="footer-copy">© Hanif 2026 · All rights reserved.</p>
+                <p class="footer-made">Dibuat oleh: <span class="footer-brand">SukaCoding</span></p>
+            </footer>
+
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SCREEN PENGATURAN (FULL SCREEN)
+    ====================================================== -->
+    <section class="screen hidden settings-screen" id="settingsScreen">
+        <div class="settings-wrapper">
+
+            <!-- Header -->
+            <div class="settings-header">
+                <button class="back-btn" onclick="closeSettings()">← Kembali</button>
+                <h1 class="settings-title">⚙️ Pengaturan</h1>
+            </div>
+
+            <!-- Tema -->
+            <div class="setting-group">
+                <div class="setting-group-icon">🎨</div>
+                <h3>Tema Tampilan</h3>
+                <p class="setting-desc">Pilih tampilan yang nyaman untuk kamu.</p>
+                <div class="theme-options">
+                    <label class="theme-card">
+                        <input type="radio" name="theme" value="auto" checked onchange="changeTheme(this.value)">
+                        <span class="theme-card-inner">
+                            <span class="theme-emoji">🌓</span>
+                            <span>Otomatis</span>
+                        </span>
+                    </label>
+                    <label class="theme-card">
+                        <input type="radio" name="theme" value="light" onchange="changeTheme(this.value)">
+                        <span class="theme-card-inner">
+                            <span class="theme-emoji">☀️</span>
+                            <span>Terang</span>
+                        </span>
+                    </label>
+                    <label class="theme-card">
+                        <input type="radio" name="theme" value="dark" onchange="changeTheme(this.value)">
+                        <span class="theme-card-inner">
+                            <span class="theme-emoji">🌙</span>
+                            <span>Gelap</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Jadwal Sholat -->
+            <div class="setting-group">
+                <div class="setting-group-icon">🕌</div>
+                <h3>Jadwal Sholat Hari Ini</h3>
+                <p class="setting-desc">Jadwal presisi berdasarkan lokasi GPS kamu (Kemenag RI).</p>
+                <div class="prayer-top-row">
+                    <button class="btn-primary small" id="getLocationBtn" onclick="fetchPrayerTimes()">📍 Dapatkan Jadwal</button>
+                    <div class="offset-options">
+                        <label for="prayerOffset">Ikhtiyat:</label>
+                        <select id="prayerOffset" onchange="applyPrayerOffset()">
+                            <option value="0">+0 Menit</option>
+                            <option value="1">+1 Menit</option>
+                            <option value="2">+2 Menit</option>
+                            <option value="3" selected>+3 Menit</option>
+                            <option value="4">+4 Menit</option>
+                            <option value="5">+5 Menit</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="prayerSchedule" class="prayer-schedule hidden">
+                    <!-- Jadwal sholat diinjeksi via JS -->
+                </div>
+            </div>
+
+            <!-- Fitur Lainnya -->
+            <div class="setting-group">
+                <div class="setting-group-icon">✨</div>
+                <h3>Fitur Lainnya</h3>
+                <div class="feature-list">
+                    <div class="feature-row">
+                        <div>
+                            <span class="feature-title">Animasi Partikel</span>
+                            <span class="feature-desc">Efek hujan bunga di latar belakang</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="particlesToggle" checked onchange="toggleParticles()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="feature-row">
+                        <div>
+                            <span class="feature-title">Musik Latar</span>
+                            <span class="feature-desc">Putar/jeda musik romantis</span>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="musicToggleSettings" checked onchange="toggleMusicFromSettings()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer credit -->
+            <div class="settings-footer">
+                <p>Dibuat oleh: <strong>SukaCoding</strong></p>
+                <p>© Hanif 2026 - All rights reserved</p>
+            </div>
+
+        </div>
+    </section>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
