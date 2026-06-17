@@ -598,8 +598,9 @@ function applyTheme(theme) {
     } else if (theme === 'light') {
         document.documentElement.removeAttribute('data-theme');
     } else {
-        // Auto
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // Auto (Berdasarkan jam: 18:00 - 05:59 = dark mode)
+        const hour = new Date().getHours();
+        if (hour >= 18 || hour < 6) {
             document.documentElement.setAttribute('data-theme', 'dark');
         } else {
             document.documentElement.removeAttribute('data-theme');
@@ -618,9 +619,11 @@ const themeRadio = document.querySelector(`input[name="theme"][value="${savedThe
 if (themeRadio) themeRadio.checked = true;
 applyTheme(savedTheme);
 
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (localStorage.getItem('bucin_theme') === 'auto') applyTheme('auto');
-});
+// Cek waktu setiap 1 menit untuk update mode otomatis secara real-time
+setInterval(() => {
+    const currentTheme = localStorage.getItem('bucin_theme') || 'auto';
+    if (currentTheme === 'auto') applyTheme('auto');
+}, 60000);
 
 // ============================================================
 //  PARTICLES TOGGLE
