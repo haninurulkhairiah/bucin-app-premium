@@ -297,6 +297,18 @@ function escapeHtml(str) {
     return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+function formatTime(dateObj) {
+    if (!dateObj) return '';
+    const d = new Date(dateObj);
+    if (isNaN(d.getTime())) return '';
+    const hh = String(d.getHours()).padStart(2, '0');
+    const mm = String(d.getMinutes()).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    const mt = String(d.getMonth() + 1).padStart(2, '0');
+    const yy = d.getFullYear();
+    return `${hh}:${mm} - ${dd}/${mt}/${yy}`;
+}
+
 // ============================================================
 //  MUSIC PLAYER
 // ============================================================
