@@ -161,7 +161,7 @@ window.handleYes = async function() {
     yesBtn.textContent = '💖 Yeay!!';
     burstConfetti(yesBtn);
     await new Promise(r => setTimeout(r, 700));
-    await saveMessage("Jawaban: MAU BANGET! 💞", "Aku 🥰");
+    // await saveMessage("Jawaban: MAU BANGET! 💞", "Aku 💞"); // Dihapus agar tidak masuk ke pesan public
     goToScreen(7);
 };
 
